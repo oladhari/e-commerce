@@ -54,7 +54,8 @@ TEMPLATES = [
     },
 ]
 
-LANGUAGE_CODE = "en-us"
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+LANGUAGE_CODE = "sv-SE"
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_L10N = True
