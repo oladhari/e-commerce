@@ -40,7 +40,7 @@ class ProductList extends React.Component {
           <Message
             negative
             header="there is error in your submission"
-            content={JSON.stringfy(error)}
+            content={JSON.stringify(error)}
           />
         )}
         {loading && (
