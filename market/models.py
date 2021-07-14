@@ -85,10 +85,12 @@ class Item(models.Model):
 
 
 class OrderItem(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    ordered = models.BooleanField(default=False)
-    item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    quantity = models.IntegerField(default=1)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_("user")
+    )
+    ordered = models.BooleanField(default=False, verbose_name=_("ordered"))
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, verbose_name=_("item"))
+    quantity = models.IntegerField(default=1, verbose_name=_("quantity"))
 
     def __str__(self):
         return f"{self.quantity} of {self.item.title}"
@@ -109,18 +111,23 @@ class OrderItem(models.Model):
 
 
 class Order(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    ref_code = models.CharField(max_length=20, blank=True, null=True)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_("user")
+    )
+    ref_code = models.CharField(
+        max_length=20, blank=True, null=True, verbose_name=_("reference code")
+    )
     items = models.ManyToManyField(OrderItem)
-    start_date = models.DateTimeField(auto_now_add=True)
-    ordered_date = models.DateTimeField()
-    ordered = models.BooleanField(default=False)
+    start_date = models.DateTimeField(auto_now_add=True, verbose_name=_("start date"))
+    ordered_date = models.DateTimeField(verbose_name=_("ordered date"))
+    ordered = models.BooleanField(default=False, verbose_name=_("ordered"))
     shipping_address = models.ForeignKey(
         "Address",
         related_name="shipping_address",
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
+        verbose_name=_("shipping address"),
     )
     billing_address = models.ForeignKey(
         "Address",
@@ -128,17 +135,32 @@ class Order(models.Model):
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
+        verbose_name=_("billing address"),
     )
     payment = models.ForeignKey(
-        "Payment", on_delete=models.SET_NULL, blank=True, null=True
+        "Payment",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        verbose_name=_("payment"),
     )
     coupon = models.ForeignKey(
-        "Coupon", on_delete=models.SET_NULL, blank=True, null=True
+        "Coupon",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        verbose_name=_("coupon"),
     )
-    being_delivered = models.BooleanField(default=False)
-    received = models.BooleanField(default=False)
-    refund_requested = models.BooleanField(default=False)
-    refund_granted = models.BooleanField(default=False)
+    being_delivered = models.BooleanField(
+        default=False, verbose_name=_("being delivered")
+    )
+    received = models.BooleanField(default=False, verbose_name=_("received"))
+    refund_requested = models.BooleanField(
+        default=False, verbose_name=_("refund requested")
+    )
+    refund_granted = models.BooleanField(
+        default=False, verbose_name=_("refund granted")
+    )
 
     """
     1. Item added to cart
@@ -164,13 +186,19 @@ class Order(models.Model):
 
 
 class Address(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    street_address = models.CharField(max_length=100)
-    apartment_address = models.CharField(max_length=100)
-    country = CountryField(multiple=False)
-    zip = models.CharField(max_length=100)
-    address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
-    default = models.BooleanField(default=False)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_("user")
+    )
+    street_address = models.CharField(max_length=100, verbose_name=_("street address"))
+    apartment_address = models.CharField(
+        max_length=100, verbose_name=_("apartment address")
+    )
+    country = CountryField(multiple=False, verbose_name=_("country"))
+    zip = models.CharField(max_length=100, verbose_name=_("zip code"))
+    address_type = models.CharField(
+        max_length=1, choices=ADDRESS_CHOICES, verbose_name=_("address type")
+    )
+    default = models.BooleanField(default=False, verbose_name=_("default"))
 
     def __str__(self):
         return self.user.username
@@ -180,30 +208,36 @@ class Address(models.Model):
 
 
 class Payment(models.Model):
-    stripe_charge_id = models.CharField(max_length=50)
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, blank=True, null=True
+    stripe_charge_id = models.CharField(
+        max_length=50, verbose_name=_("stripe charge id")
     )
-    amount = models.FloatField()
-    timestamp = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        verbose_name=_("user"),
+    )
+    amount = models.FloatField(verbose_name=_("amount"))
+    timestamp = models.DateTimeField(auto_now_add=True, verbose_name=_("timestamp"))
 
     def __str__(self):
         return self.user.username
 
 
 class Coupon(models.Model):
-    code = models.CharField(max_length=15)
-    amount = models.FloatField()
+    code = models.CharField(max_length=15, verbose_name=_("code"))
+    amount = models.FloatField(verbose_name=_("amount"))
 
     def __str__(self):
         return self.code
 
 
 class Refund(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    reason = models.TextField()
-    accepted = models.BooleanField(default=False)
-    email = models.EmailField()
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name=_("order"))
+    reason = models.TextField(verbose_name=_("reason"))
+    accepted = models.BooleanField(default=False, verbose_name=_("accepted"))
+    email = models.EmailField(verbose_name=_("email"))
 
     def __str__(self):
         return f"{self.pk}"
