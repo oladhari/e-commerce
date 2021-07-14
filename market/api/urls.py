@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import (
+from market.api.views import (
     UserIDView,
     ItemListView,
     ItemDetailView,
