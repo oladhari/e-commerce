@@ -10,4 +10,5 @@ we use semnatic commit messages rule to make the commit messages more readable a
 and we use almost the same rule for branches, we avoid to do any changes in master branch to avoid any future conflict as a team
 the branch name should start with one the semantic types then the related issue number
 example adding header feature related to issue N 136 , format will be `feat/136_header`
+
 Format: `<type>(<scope>)/<issue_number>_<subject>`
