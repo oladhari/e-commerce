@@ -29,14 +29,14 @@ python manage.py runserver
 ## Frontend development workflow
 
 ```json
-npm i
-npm start
+yarn
+yarn start
 ```
 
 ## For deploying
 
 ```json
-npm run build
+yarn build
 ```
 
 ---
