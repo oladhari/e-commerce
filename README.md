@@ -33,7 +33,20 @@ yarn
 yarn start
 ```
 
+with yarn
+
+```json
+yarn
+yarn start
+```
+
 ## For deploying
+
+```json
+yarn build
+```
+
+with yarn
 
 ```json
 yarn build
