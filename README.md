@@ -26,14 +26,14 @@ python manage.py runserver
 
 ## Frontend development workflow
 
-we are using npm for this project
+with **npm**
 
 ```json
-yarn
-yarn start
+npm i
+npm start
 ```
 
-with yarn
+with **yarn**
 
 ```json
 yarn
@@ -42,11 +42,13 @@ yarn start
 
 ## For deploying
 
+with **npm**
+
 ```json
-yarn build
+npm run build
 ```
 
-with yarn
+with **yarn**
 
 ```json
 yarn build
