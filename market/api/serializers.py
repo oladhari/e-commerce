@@ -23,7 +23,6 @@ class CouponSerializer(serializers.ModelSerializer):
 
 
 class ItemSerializer(serializers.ModelSerializer):
-    label = serializers.SerializerMethodField()
     category = serializers.SerializerMethodField()
 
     class Meta:
@@ -33,19 +32,16 @@ class ItemSerializer(serializers.ModelSerializer):
             "title",
             "price",
             "discount_price",
-            "label",
             "slug",
             "description",
             "image",
+            "category",
         )
 
     def get_category(self, obj):
         if obj.category is not None:
             return CategorySerializer(obj.category).data
         return None
-
-    def get_label(self, obj):
-        return obj.get_label_display()
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -95,7 +91,6 @@ class OrderSerializer(serializers.ModelSerializer):
 
 class ItemDetailSerializer(serializers.ModelSerializer):
     category = serializers.SerializerMethodField()
-    label = serializers.SerializerMethodField()
 
     class Meta:
         model = Item
@@ -104,7 +99,6 @@ class ItemDetailSerializer(serializers.ModelSerializer):
             "title",
             "price",
             "discount_price",
-            "label",
             "slug",
             "description",
             "image",
@@ -114,9 +108,6 @@ class ItemDetailSerializer(serializers.ModelSerializer):
         if obj.category is not None:
             return CategorySerializer(obj.category).data
         return None
-
-    def get_label(self, obj):
-        return obj.get_label_display()
 
 
 class CategoryDetailSerializer(serializers.ModelSerializer):
