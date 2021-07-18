@@ -12,9 +12,9 @@ import {
 } from "semantic-ui-react";
 
 import Axios from "axios";
+import { Fragment } from "react-is";
 import React from "react";
-
-const paragraph = <Image src="/images/wireframe/short-paragraph.png" />;
+import { productListURL } from "../constants";
 
 class ProductList extends React.Component {
   state = {
@@ -24,7 +24,7 @@ class ProductList extends React.Component {
   };
   componentDidMount() {
     this.setState({ loading: true });
-    Axios.get("/some-url")
+    Axios.get(productListURL)
       .then((res) => {
         this.setState({ data: res.data, loading: false });
       })
@@ -34,6 +34,7 @@ class ProductList extends React.Component {
   }
   render() {
     const { data, error, loading } = this.state;
+
     return (
       <Container>
         {error && (
@@ -49,28 +50,32 @@ class ProductList extends React.Component {
               <Loader>Loading</Loader>
             </Dimmer>
 
-            <Image src="/images/wireframe/short-paragraph.png" />
+            <Image src="" />
           </Segment>
         )}
         <Item.Group divided>
-          <Item>
-            <Item.Image src="/images/wireframe/image.png" />
+          {data?.map((product) => {
+            return (
+              <Item key={product.id}>
+                <Item.Image src={product.image} />
 
-            <Item.Content>
-              <Item.Header as="a">My Neighbor Totoro</Item.Header>
-              <Item.Meta>
-                <span className="cinema">IFC Cinema</span>
-              </Item.Meta>
-              <Item.Description>{paragraph}</Item.Description>
-              <Item.Extra>
-                <Button primary floated="right" icon labelPosition="right">
-                  Add to cart
-                  <Icon name="cart plus" />
-                </Button>
-                <Label>Limited</Label>
-              </Item.Extra>
-            </Item.Content>
-          </Item>
+                <Item.Content>
+                  <Item.Header as="a">{product.title}</Item.Header>
+                  <Item.Meta>
+                    <span className="cinema">{product.category}</span>
+                  </Item.Meta>
+                  <Item.Description>{product.description}</Item.Description>
+                  <Item.Extra>
+                    <Button primary floated="right" icon labelPosition="right">
+                      Add to cart
+                      <Icon name="cart plus" />
+                    </Button>
+                    <Label>{product.price}</Label>
+                  </Item.Extra>
+                </Item.Content>
+              </Item>
+            );
+          })}
         </Item.Group>
       </Container>
     );
