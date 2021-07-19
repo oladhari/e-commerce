@@ -12,7 +12,6 @@ import {
 } from "semantic-ui-react";
 
 import Axios from "axios";
-import { Fragment } from "react-is";
 import React from "react";
 import { productListURL } from "../constants";
 
@@ -62,7 +61,7 @@ class ProductList extends React.Component {
                 <Item.Content>
                   <Item.Header as="a">{product.title}</Item.Header>
                   <Item.Meta>
-                    <span className="cinema">{product.category}</span>
+                    <span className="cinema">{product.category.title}</span>
                   </Item.Meta>
                   <Item.Description>{product.description}</Item.Description>
                   <Item.Extra>
