@@ -6,8 +6,7 @@
 
 we advise to use `virtualenvwrapper` more easy and flexible to use
 you can follow the documentation [here](https://virtualenvwrapper.readthedocs.io/en/latest/)
-
-_with normal virtualenv_
+**with normal virtualenv:**
 
 ```json
 virtualenv env
@@ -16,7 +15,7 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
-_with virtualenvwrapper_
+**with virtualenvwrapper:**
 
 ```json
 mkvirtualenv <name_your_virtualenv> -p /usr/bin/python3.8
@@ -26,14 +25,14 @@ python manage.py runserver
 
 ## Frontend development workflow
 
-with **npm**
+**with npm:**
 
 ```json
 npm i
 npm start
 ```
 
-with **yarn**
+**with yarn:**
 
 ```json
 yarn
@@ -42,13 +41,13 @@ yarn start
 
 ## For deploying
 
-with **npm**
+**with npm:**
 
 ```json
 npm run build
 ```
 
-with **yarn**
+**with yarn:**
 
 ```json
 yarn build
