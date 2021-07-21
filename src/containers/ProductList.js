@@ -69,7 +69,7 @@ class ProductList extends React.Component {
                       Add to cart
                       <Icon name="cart plus" />
                     </Button>
-                    <Label>{product.price}</Label>
+                    <Label>{product.price} $</Label>
                   </Item.Extra>
                 </Item.Content>
               </Item>
