@@ -10,10 +10,11 @@ import {
   Message,
   Segment,
 } from "semantic-ui-react";
+import { addToCartURL, productListURL } from "../constants";
 
 import Axios from "axios";
 import React from "react";
-import { productListURL } from "../constants";
+import { authAxios } from "../utils";
 
 class ProductList extends React.Component {
   state = {
@@ -28,9 +29,21 @@ class ProductList extends React.Component {
         this.setState({ data: res.data, loading: false });
       })
       .catch((err) => {
-        this.setState({ error: err, loading: false });
+        this.setState({ error: err.message, loading: false });
       });
   }
+  handleAddToCart = (slug) => {
+    this.setState({ loading: true });
+    authAxios
+      .post(addToCartURL, { slug: slug })
+      .then((res) => {
+        // update the card count
+        this.setState({ loading: false });
+      })
+      .catch((err) => {
+        this.setState({ error: err.message, loading: false });
+      });
+  };
   render() {
     const { data, error, loading } = this.state;
 
@@ -65,7 +78,13 @@ class ProductList extends React.Component {
                   </Item.Meta>
                   <Item.Description>{product.description}</Item.Description>
                   <Item.Extra>
-                    <Button primary floated="right" icon labelPosition="right">
+                    <Button
+                      primary
+                      floated="right"
+                      icon
+                      labelPosition="right"
+                      onClick={() => this.handleAddToCart(product.slug)}
+                    >
                       Add to cart
                       <Icon name="cart plus" />
                     </Button>

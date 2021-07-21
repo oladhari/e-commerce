@@ -12,3 +12,12 @@ the branch name should start with one the semantic types then the related issue 
 example adding header feature related to issue N 136 , format will be `feat/136_header`
 
 Format: `<type>(<scope>)/<issue_number>_<subject>`
+
+## Breakpoint backend:
+
+make sure you have `ipdb` installed in your local virtualenv
+**to set a breakpoint:**
+
+```python
+import ipdb; ipdb.set_trace()
+```
