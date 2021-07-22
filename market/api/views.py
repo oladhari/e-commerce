@@ -126,11 +126,13 @@ class AddToCartView(APIView):
             order_item = order_item_qs.first()
             order_item.quantity += 1
             order_item.save()
+            return Response(status=HTTP_200_OK)
         else:
             order_item = OrderItem.objects.create(
                 item=item, user=request.user, ordered=False
             )
             order_item.save()
+            return Response(status=HTTP_200_OK)
 
         order_qs = Order.objects.filter(user=request.user, ordered=False)
         if order_qs.exists():
