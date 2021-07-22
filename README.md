@@ -5,7 +5,8 @@
 ## Backend development workflow
 
 we advise to use `virtualenvwrapper` more easy and flexible to use
-you can follow the documentation [here](https://virtualenvwrapper.readthedocs.io/en/latest/)
+you can follow the documentation [here](https://virtualenvwrapper.readthedocs.io/en/latest/).
+
 **with normal virtualenv:**
 
 ```json
