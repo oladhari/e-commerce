@@ -1,11 +1,7 @@
 import {
-  Button,
   Container,
   Dimmer,
-  Icon,
   Image,
-  Item,
-  Label,
   Loader,
   Message,
   Segment,
@@ -26,7 +22,6 @@ const ProductList = () => {
     setLoading(true);
     Axios.get("http://127.0.0.1:8000/api/products/")
       .then((res) => {
-        console.log(res)
         setData(res.data);
         setLoading(false)
       })
