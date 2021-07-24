@@ -13,6 +13,7 @@ import {
 
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
+import Product from '../components/Product'
 
 const paragraph = <Image src="/images/wireframe/short-paragraph.png" />;
 
@@ -53,26 +54,9 @@ const ProductList = () => {
           <Image src="/images/wireframe/short-paragraph.png" />
         </Segment>
       )}
-      <Item.Group divided>
-        <Item>
-          <Item.Image src="/images/wireframe/image.png" />
-
-          <Item.Content>
-            <Item.Header as="a">My Neighbor Totoro</Item.Header>
-            <Item.Meta>
-              <span className="cinema">IFC Cinema</span>
-            </Item.Meta>
-            <Item.Description>{paragraph}</Item.Description>
-            <Item.Extra>
-              <Button primary floated="right" icon labelPosition="right">
-                Add to cart
-                <Icon name="cart plus" />
-              </Button>
-              <Label>Limited</Label>
-            </Item.Extra>
-          </Item.Content>
-        </Item>
-      </Item.Group>
+      {data.map((el) => (
+        <Product data={el} />
+      ))}
     </Container>
   );
 }
