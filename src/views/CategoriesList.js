@@ -2,6 +2,7 @@ import {
   Button,
   Container,
   Dimmer,
+  Grid,
   Icon,
   Image,
   Item,
@@ -10,6 +11,7 @@ import {
   Message,
   Segment,
 } from "semantic-ui-react";
+import Category from "../components/Category";
 
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -25,7 +27,6 @@ const CategoriesList = () => {
     setLoading(true);
     Axios.get("http://127.0.0.1:8000/api/categories/")
       .then((res) => {
-        console.log(res)
         setData(res.data);
         setLoading(false)
       })
@@ -53,26 +54,11 @@ const CategoriesList = () => {
           <Image src="/images/wireframe/short-paragraph.png" />
         </Segment>
       )}
-      <Item.Group divided>
-        <Item>
-          <Item.Image src="/images/wireframe/image.png" />
-
-          <Item.Content>
-            <Item.Header as="a">My Neighbor Totoro</Item.Header>
-            <Item.Meta>
-              <span className="cinema">IFC Cinema</span>
-            </Item.Meta>
-            <Item.Description>{paragraph}</Item.Description>
-            <Item.Extra>
-              <Button primary floated="right" icon labelPosition="right">
-                Add to cart
-                <Icon name="cart plus" />
-              </Button>
-              <Label>Limited</Label>
-            </Item.Extra>
-          </Item.Content>
-        </Item>
-      </Item.Group>
+      <Grid reversed="tablet vertically">
+        {data.map((el, key) => (
+          <Category cat={el.title} key={key} />
+        ))}
+      </Grid>
     </Container>
   );
 }
