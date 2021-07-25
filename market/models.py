@@ -2,6 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.db.models.signals import post_save
 from django.shortcuts import reverse
+from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 
@@ -63,12 +64,17 @@ class Item(models.Model):
     categories = models.ManyToManyField(
         "Category", verbose_name=_("categories"), related_name="categories", blank=False
     )
-    slug = models.SlugField(verbose_name=_("slug"))
+    slug = models.SlugField(verbose_name=_("slug"), blank=True)
     description = models.TextField(verbose_name=_("description"))
     image = models.ImageField(verbose_name=_("image"))
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        if self.title and not self.id:
+            self.slug = slugify(self.title)
+        super(Item, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse("market:product", kwargs={"slug": self.slug})

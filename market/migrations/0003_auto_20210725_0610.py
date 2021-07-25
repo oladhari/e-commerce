@@ -5,15 +5,10 @@ from django.db import models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ("market", "0002_auto_20210714_1316"),
-    ]
+    dependencies = [("market", "0002_auto_20210714_1316")]
 
     operations = [
-        migrations.RemoveField(
-            model_name="item",
-            name="category",
-        ),
+        migrations.RemoveField(model_name="item", name="category"),
         migrations.AddField(
             model_name="item",
             name="categories",
