@@ -36,6 +36,19 @@ python3 manage.py createsuperuser
 
 NB: to be able to add to cart and purchase items you should be logged in first
 
+**customize local host for django:**
+we use a customized host for our backend, please edit your `/etc/hosts/`
+
+```json
+127.0.0.1       ecom.local
+```
+
+as in `dev.py` we already configured the local host to use:
+
+```python
+BASE_URL = "http://ecom.local:8000"
+```
+
 ## Issues
 
 please describe your task clearly and try to add a detailed checklist in purpose to finish your task

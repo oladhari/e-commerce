@@ -1,10 +1,9 @@
-from django.db.models.signals import post_save
 from django.conf import settings
 from django.db import models
-from django.db.models import Sum
+from django.db.models.signals import post_save
 from django.shortcuts import reverse
-from django_countries.fields import CountryField
 from django.utils.translation import gettext_lazy as _
+from django_countries.fields import CountryField
 
 
 CLOTHES_SIZES = (
@@ -16,10 +15,7 @@ CLOTHES_SIZES = (
     ("XXL", "extra extra large"),
 )
 
-ADDRESS_CHOICES = (
-    ("B", "Billing"),
-    ("S", "Shipping"),
-)
+ADDRESS_CHOICES = (("B", "Billing"), ("S", "Shipping"))
 
 
 class UserProfile(models.Model):
@@ -245,7 +241,7 @@ class Refund(models.Model):
 
 def userprofile_receiver(sender, instance, created, *args, **kwargs):
     if created:
-        userprofile = UserProfile.objects.create(user=instance)
+        UserProfile.objects.create(user=instance)
 
 
 post_save.connect(userprofile_receiver, sender=settings.AUTH_USER_MODEL)
