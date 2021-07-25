@@ -71,7 +71,7 @@ import ipdb; ipdb.set_trace()
 to use the initial fixtures for development purpose:
 
 ```shell
-./manage.py loaddata fixtures
+./manage.py loaddata home/fixtures/fixtures
 ```
 
 to update the fixtures or reate new one:
