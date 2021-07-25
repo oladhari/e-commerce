@@ -47,6 +47,9 @@ class CustomLayout extends React.Component {
             <Link to="/products">
               <Menu.Item header>Products</Menu.Item>
             </Link>
+            <Link to="/categories">
+              <Menu.Item header>Categories</Menu.Item>
+            </Link>
           </Container>
         </Menu>
 

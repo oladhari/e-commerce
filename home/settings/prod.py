@@ -1,5 +1,4 @@
 """Use this for production"""
-
 from .base import *
 
 DEBUG = False

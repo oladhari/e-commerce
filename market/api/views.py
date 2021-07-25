@@ -1,45 +1,40 @@
-from django_countries import countries
-from django.db.models import Q
+import stripe
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Q
 from django.http import Http404
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render
 from django.utils import timezone
-from rest_framework.generics import (
-    ListAPIView,
-    RetrieveAPIView,
-    CreateAPIView,
-    UpdateAPIView,
-    DestroyAPIView,
-)
-from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework.views import APIView
+from django_countries import countries
+from rest_framework.generics import CreateAPIView
+from rest_framework.generics import DestroyAPIView
+from rest_framework.generics import ListAPIView
+from rest_framework.generics import RetrieveAPIView
+from rest_framework.generics import UpdateAPIView
+from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
-from market.models import Item, OrderItem, Order
-from market.api.serializers import (
-    ItemSerializer,
-    CategorySerializer,
-    OrderSerializer,
-    ItemDetailSerializer,
-    CategoryDetailSerializer,
-    AddressSerializer,
-    PaymentSerializer,
-)
-from market.models import (
-    Item,
-    Category,
-    OrderItem,
-    Order,
-    Address,
-    Payment,
-    Coupon,
-    Refund,
-    UserProfile,
-)
+from rest_framework.status import HTTP_200_OK
+from rest_framework.status import HTTP_400_BAD_REQUEST
+from rest_framework.views import APIView
 
-
-import stripe
+from market.api.serializers import AddressSerializer
+from market.api.serializers import CategoryDetailSerializer
+from market.api.serializers import CategorySerializer
+from market.api.serializers import ItemDetailSerializer
+from market.api.serializers import ItemSerializer
+from market.api.serializers import OrderSerializer
+from market.api.serializers import PaymentSerializer
+from market.models import Address
+from market.models import Category
+from market.models import Coupon
+from market.models import Item
+from market.models import Order
+from market.models import OrderItem
+from market.models import Payment
+from market.models import Refund
+from market.models import UserProfile
 
 # stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -180,9 +175,7 @@ class PaymentView(APIView):
             customer.sources.create(source=token)
 
         else:
-            customer = stripe.Customer.create(
-                email=self.request.user.email,
-            )
+            customer = stripe.Customer.create(email=self.request.user.email)
             customer.sources.create(source=token)
             userprofile.stripe_customer_id = customer["id"]
             userprofile.one_click_purchasing = True

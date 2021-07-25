@@ -1,14 +1,13 @@
 from django_countries.serializer_fields import CountryField
 from rest_framework import serializers
-from market.models import (
-    Address,
-    Item,
-    Category,
-    Order,
-    OrderItem,
-    Coupon,
-    Payment,
-)
+
+from market.models import Address
+from market.models import Category
+from market.models import Coupon
+from market.models import Item
+from market.models import Order
+from market.models import OrderItem
+from market.models import Payment
 
 
 class StringSerializer(serializers.StringRelatedField):
@@ -22,8 +21,15 @@ class CouponSerializer(serializers.ModelSerializer):
         fields = ("id", "code", "amount")
 
 
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ("id", "title")
+        extra_kwargs = {"categories": {"required": False}}
+
+
 class ItemSerializer(serializers.ModelSerializer):
-    category = serializers.SerializerMethodField()
+    categories = CategorySerializer(many=True, read_only=True)
 
     class Meta:
         model = Item
@@ -35,22 +41,9 @@ class ItemSerializer(serializers.ModelSerializer):
             "slug",
             "description",
             "image",
-            "category",
+            "categories",
         )
-
-    def get_category(self, obj):
-        if obj.category is not None:
-            return CategorySerializer(obj.category).data
-        return None
-
-
-class CategorySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Category
-        fields = (
-            "id",
-            "title",
-        )
+        extra_kwargs = {"categories": {"required": False}}
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
@@ -115,10 +108,7 @@ class CategoryDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        fields = (
-            "id",
-            "title",
-        )
+        fields = ("id", "title")
 
 
 class AddressSerializer(serializers.ModelSerializer):

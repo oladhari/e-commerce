@@ -60,8 +60,8 @@ class Item(models.Model):
     discount_price = models.FloatField(
         blank=True, null=True, verbose_name=_("discount price")
     )
-    category = models.ForeignKey(
-        "Category", on_delete=models.CASCADE, verbose_name=_("category")
+    categories = models.ManyToManyField(
+        "Category", verbose_name=_("categories"), related_name="categories", blank=False
     )
     slug = models.SlugField(verbose_name=_("slug"))
     description = models.TextField(verbose_name=_("description"))
