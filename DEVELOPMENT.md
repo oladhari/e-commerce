@@ -6,14 +6,7 @@ one fore the Django server and the other one for React server:
 **To run Django server:**
 
 ```console
-python manage.py runserver
-```
-
-if you installed your virtualenv with python 3,
-please run this command instead:
-
-```console
-python3 manage.py runserver
+./manage.py runserver_plus
 ```
 
 **To run React server:**
