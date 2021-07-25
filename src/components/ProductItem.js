@@ -1,4 +1,6 @@
 import { Item, Button, Label, Icon } from "semantic-ui-react";
+import { Card, Icon, Image } from 'semantic-ui-react'
+
 
 const Product = ({ data }) => (
   <Item.Group divided key={data.slug}>
@@ -22,5 +24,27 @@ const Product = ({ data }) => (
     </Item>
   </Item.Group>
 );
+
+
+const CardExampleImageCard = ({ data }) => (
+  <Card>
+    <Image src='/images/avatar/large/daniel.jpg' wrapped ui={false} />
+    <Card.Content>
+      <Card.Header>{data.title}</Card.Header>
+      <Card.Meta>{data.price}</Card.Meta>
+      <Card.Description>
+        {data.description}
+      </Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+      <a>
+        <Icon name='user' />
+        10 Friends
+      </a>
+    </Card.Content>
+  </Card>
+)
+
+export default CardExampleImageCard
 
 export default Product;

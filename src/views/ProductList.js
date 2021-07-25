@@ -9,7 +9,7 @@ import {
 import React, { useEffect, useState } from "react";
 
 import Axios from "axios";
-import Product from "../components/Product";
+import Product from "../components/ProductItem";
 
 const paragraph = <Image src="/images/wireframe/short-paragraph.png" />;
 
@@ -22,6 +22,7 @@ const ProductList = () => {
     setLoading(true);
     Axios.get("http://127.0.0.1:8000/api/products/")
       .then((res) => {
+        console.log(res.data);
         setData(res.data);
         setLoading(false);
       })

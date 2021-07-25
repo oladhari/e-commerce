@@ -11,7 +11,7 @@ import {
   Message,
   Segment,
 } from "semantic-ui-react";
-import Category from "../components/Category";
+import Category from "../components/CategoryItem";
 
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
