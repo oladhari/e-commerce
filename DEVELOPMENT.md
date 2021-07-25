@@ -17,8 +17,8 @@ yarn start # if you use yarn
 ```
 
 - to connect to the application: `http://localhost:3000/`
-- to connect to the API address: `http://127.0.0.1:8000/api/` # this will list all available URLs for the API
-- to connect to the admin CMS to add or edit or delete instances (items, categories ...): `http://127.0.0.1:8000/admin/`
+- to connect to the API address: `http://ecom.local:8000/api/` # this will list all available URLs for the API
+- to connect to the admin CMS to add or edit or delete instances (items, categories ...): `http://ecom.local:8000/admin/`
 
 make sure you have made a super user account to be able to connect to admin CMS,
 if you do not have an super user account yet please make one with this command:
