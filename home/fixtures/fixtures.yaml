@@ -1,0 +1,1055 @@
+- model: contenttypes.contenttype
+  fields:
+    app_label: admin
+    model: logentry
+- model: contenttypes.contenttype
+  fields:
+    app_label: auth
+    model: permission
+- model: contenttypes.contenttype
+  fields:
+    app_label: auth
+    model: group
+- model: contenttypes.contenttype
+  fields:
+    app_label: auth
+    model: user
+- model: contenttypes.contenttype
+  fields:
+    app_label: contenttypes
+    model: contenttype
+- model: contenttypes.contenttype
+  fields:
+    app_label: sessions
+    model: session
+- model: contenttypes.contenttype
+  fields:
+    app_label: sites
+    model: site
+- model: contenttypes.contenttype
+  fields:
+    app_label: account
+    model: emailaddress
+- model: contenttypes.contenttype
+  fields:
+    app_label: account
+    model: emailconfirmation
+- model: contenttypes.contenttype
+  fields:
+    app_label: socialaccount
+    model: socialaccount
+- model: contenttypes.contenttype
+  fields:
+    app_label: socialaccount
+    model: socialapp
+- model: contenttypes.contenttype
+  fields:
+    app_label: socialaccount
+    model: socialtoken
+- model: contenttypes.contenttype
+  fields:
+    app_label: authtoken
+    model: token
+- model: contenttypes.contenttype
+  fields:
+    app_label: authtoken
+    model: tokenproxy
+- model: contenttypes.contenttype
+  fields:
+    app_label: market
+    model: address
+- model: contenttypes.contenttype
+  fields:
+    app_label: market
+    model: category
+- model: contenttypes.contenttype
+  fields:
+    app_label: market
+    model: coupon
+- model: contenttypes.contenttype
+  fields:
+    app_label: market
+    model: item
+- model: contenttypes.contenttype
+  fields:
+    app_label: market
+    model: order
+- model: contenttypes.contenttype
+  fields:
+    app_label: market
+    model: userprofile
+- model: contenttypes.contenttype
+  fields:
+    app_label: market
+    model: refund
+- model: contenttypes.contenttype
+  fields:
+    app_label: market
+    model: payment
+- model: contenttypes.contenttype
+  fields:
+    app_label: market
+    model: orderitem
+- model: sessions.session
+  pk: bjn5fntltsa6ba8x60x0qny3yxkvdn96
+  fields:
+    session_data: .eJxVjDEOAiEQRe9CbYgDLLCW9p6BDDAjqwaSZbcy3t2QbKHNL_57eW8RcN9K2DutYcniIkCcfr-I6Ul1gPzAem8ytbqtS5RDkQft8tYyva6H-xco2MvI2sjOQMraQjToDdvz2AyK1azJoGKmxNZAdJ7BktazZ5wQJ-WUFZ8v6t04BQ:1m7Yuq:n6yq-uisuDMJHG2YNOs3gKwPs_9c7Yw4J3fObkEQiHE
+    expire_date: 2021-08-08 07:51:16.534877+00:00
+- model: sites.site
+  fields:
+    domain: example.com
+    name: example.com
+- model: market.category
+  pk: 1
+  fields:
+    title: clothes
+- model: market.category
+  pk: 2
+  fields:
+    title: cosmetics
+- model: market.category
+  pk: 3
+  fields:
+    title: shoes
+- model: market.category
+  pk: 4
+  fields:
+    title: men
+- model: market.category
+  pk: 5
+  fields:
+    title: women
+- model: market.category
+  pk: 6
+  fields:
+    title: kids
+- model: market.item
+  pk: 1
+  fields:
+    title: T-shirt white
+    price: 25.0
+    clothes_size: L
+    shoes_size: null
+    discount_price: null
+    slug: t-shirt-white
+    description: White T-shirt
+    image: t-shirt-white.jpg
+    categories:
+      - 1
+      - 4
+- model: market.item
+  pk: 2
+  fields:
+    title: T-shirt black
+    price: 25.0
+    clothes_size: L
+    shoes_size: null
+    discount_price: null
+    slug: t-shirt-black
+    description: Black T-shirt
+    image: t-shirt-black.jpg
+    categories:
+      - 1
+      - 4
+- model: market.item
+  pk: 3
+  fields:
+    title: Blue /white Roses Dress
+    price: 40.0
+    clothes_size: L
+    shoes_size: null
+    discount_price: null
+    slug: blue-white-roses-dress
+    description: a blue with white roses dress
+    image: blue-white-rose.jpeg
+    categories:
+      - 1
+      - 5
+- model: market.item
+  pk: 4
+  fields:
+    title: white sneaker
+    price: 60.0
+    clothes_size: null
+    shoes_size: "28.5"
+    discount_price: null
+    slug: white-sneaker
+    description: White sneakers for men
+    image: white-sneaker.jpg
+    categories:
+      - 3
+      - 4
+- model: market.item
+  pk: 5
+  fields:
+    title: Ahlam perfume
+    price: 120.0
+    clothes_size: null
+    shoes_size: null
+    discount_price: null
+    slug: ahlam-perfume
+    description: "Ahlam perfume for women\r\n50ml"
+    image: ahlam-perfume.png
+    categories:
+      - 2
+      - 5
+- model: auth.permission
+  fields:
+    name: Can add log entry
+    content_type:
+      - admin
+      - logentry
+    codename: add_logentry
+- model: auth.permission
+  fields:
+    name: Can change log entry
+    content_type:
+      - admin
+      - logentry
+    codename: change_logentry
+- model: auth.permission
+  fields:
+    name: Can delete log entry
+    content_type:
+      - admin
+      - logentry
+    codename: delete_logentry
+- model: auth.permission
+  fields:
+    name: Can view log entry
+    content_type:
+      - admin
+      - logentry
+    codename: view_logentry
+- model: auth.permission
+  fields:
+    name: Can add permission
+    content_type:
+      - auth
+      - permission
+    codename: add_permission
+- model: auth.permission
+  fields:
+    name: Can change permission
+    content_type:
+      - auth
+      - permission
+    codename: change_permission
+- model: auth.permission
+  fields:
+    name: Can delete permission
+    content_type:
+      - auth
+      - permission
+    codename: delete_permission
+- model: auth.permission
+  fields:
+    name: Can view permission
+    content_type:
+      - auth
+      - permission
+    codename: view_permission
+- model: auth.permission
+  fields:
+    name: Can add group
+    content_type:
+      - auth
+      - group
+    codename: add_group
+- model: auth.permission
+  fields:
+    name: Can change group
+    content_type:
+      - auth
+      - group
+    codename: change_group
+- model: auth.permission
+  fields:
+    name: Can delete group
+    content_type:
+      - auth
+      - group
+    codename: delete_group
+- model: auth.permission
+  fields:
+    name: Can view group
+    content_type:
+      - auth
+      - group
+    codename: view_group
+- model: auth.permission
+  fields:
+    name: Can add user
+    content_type:
+      - auth
+      - user
+    codename: add_user
+- model: auth.permission
+  fields:
+    name: Can change user
+    content_type:
+      - auth
+      - user
+    codename: change_user
+- model: auth.permission
+  fields:
+    name: Can delete user
+    content_type:
+      - auth
+      - user
+    codename: delete_user
+- model: auth.permission
+  fields:
+    name: Can view user
+    content_type:
+      - auth
+      - user
+    codename: view_user
+- model: auth.permission
+  fields:
+    name: Can add content type
+    content_type:
+      - contenttypes
+      - contenttype
+    codename: add_contenttype
+- model: auth.permission
+  fields:
+    name: Can change content type
+    content_type:
+      - contenttypes
+      - contenttype
+    codename: change_contenttype
+- model: auth.permission
+  fields:
+    name: Can delete content type
+    content_type:
+      - contenttypes
+      - contenttype
+    codename: delete_contenttype
+- model: auth.permission
+  fields:
+    name: Can view content type
+    content_type:
+      - contenttypes
+      - contenttype
+    codename: view_contenttype
+- model: auth.permission
+  fields:
+    name: Can add session
+    content_type:
+      - sessions
+      - session
+    codename: add_session
+- model: auth.permission
+  fields:
+    name: Can change session
+    content_type:
+      - sessions
+      - session
+    codename: change_session
+- model: auth.permission
+  fields:
+    name: Can delete session
+    content_type:
+      - sessions
+      - session
+    codename: delete_session
+- model: auth.permission
+  fields:
+    name: Can view session
+    content_type:
+      - sessions
+      - session
+    codename: view_session
+- model: auth.permission
+  fields:
+    name: Can add site
+    content_type:
+      - sites
+      - site
+    codename: add_site
+- model: auth.permission
+  fields:
+    name: Can change site
+    content_type:
+      - sites
+      - site
+    codename: change_site
+- model: auth.permission
+  fields:
+    name: Can delete site
+    content_type:
+      - sites
+      - site
+    codename: delete_site
+- model: auth.permission
+  fields:
+    name: Can view site
+    content_type:
+      - sites
+      - site
+    codename: view_site
+- model: auth.permission
+  fields:
+    name: Can add email address
+    content_type:
+      - account
+      - emailaddress
+    codename: add_emailaddress
+- model: auth.permission
+  fields:
+    name: Can change email address
+    content_type:
+      - account
+      - emailaddress
+    codename: change_emailaddress
+- model: auth.permission
+  fields:
+    name: Can delete email address
+    content_type:
+      - account
+      - emailaddress
+    codename: delete_emailaddress
+- model: auth.permission
+  fields:
+    name: Can view email address
+    content_type:
+      - account
+      - emailaddress
+    codename: view_emailaddress
+- model: auth.permission
+  fields:
+    name: Can add email confirmation
+    content_type:
+      - account
+      - emailconfirmation
+    codename: add_emailconfirmation
+- model: auth.permission
+  fields:
+    name: Can change email confirmation
+    content_type:
+      - account
+      - emailconfirmation
+    codename: change_emailconfirmation
+- model: auth.permission
+  fields:
+    name: Can delete email confirmation
+    content_type:
+      - account
+      - emailconfirmation
+    codename: delete_emailconfirmation
+- model: auth.permission
+  fields:
+    name: Can view email confirmation
+    content_type:
+      - account
+      - emailconfirmation
+    codename: view_emailconfirmation
+- model: auth.permission
+  fields:
+    name: Can add social account
+    content_type:
+      - socialaccount
+      - socialaccount
+    codename: add_socialaccount
+- model: auth.permission
+  fields:
+    name: Can change social account
+    content_type:
+      - socialaccount
+      - socialaccount
+    codename: change_socialaccount
+- model: auth.permission
+  fields:
+    name: Can delete social account
+    content_type:
+      - socialaccount
+      - socialaccount
+    codename: delete_socialaccount
+- model: auth.permission
+  fields:
+    name: Can view social account
+    content_type:
+      - socialaccount
+      - socialaccount
+    codename: view_socialaccount
+- model: auth.permission
+  fields:
+    name: Can add social application
+    content_type:
+      - socialaccount
+      - socialapp
+    codename: add_socialapp
+- model: auth.permission
+  fields:
+    name: Can change social application
+    content_type:
+      - socialaccount
+      - socialapp
+    codename: change_socialapp
+- model: auth.permission
+  fields:
+    name: Can delete social application
+    content_type:
+      - socialaccount
+      - socialapp
+    codename: delete_socialapp
+- model: auth.permission
+  fields:
+    name: Can view social application
+    content_type:
+      - socialaccount
+      - socialapp
+    codename: view_socialapp
+- model: auth.permission
+  fields:
+    name: Can add social application token
+    content_type:
+      - socialaccount
+      - socialtoken
+    codename: add_socialtoken
+- model: auth.permission
+  fields:
+    name: Can change social application token
+    content_type:
+      - socialaccount
+      - socialtoken
+    codename: change_socialtoken
+- model: auth.permission
+  fields:
+    name: Can delete social application token
+    content_type:
+      - socialaccount
+      - socialtoken
+    codename: delete_socialtoken
+- model: auth.permission
+  fields:
+    name: Can view social application token
+    content_type:
+      - socialaccount
+      - socialtoken
+    codename: view_socialtoken
+- model: auth.permission
+  fields:
+    name: Can add Token
+    content_type:
+      - authtoken
+      - token
+    codename: add_token
+- model: auth.permission
+  fields:
+    name: Can change Token
+    content_type:
+      - authtoken
+      - token
+    codename: change_token
+- model: auth.permission
+  fields:
+    name: Can delete Token
+    content_type:
+      - authtoken
+      - token
+    codename: delete_token
+- model: auth.permission
+  fields:
+    name: Can view Token
+    content_type:
+      - authtoken
+      - token
+    codename: view_token
+- model: auth.permission
+  fields:
+    name: Can add token
+    content_type:
+      - authtoken
+      - tokenproxy
+    codename: add_tokenproxy
+- model: auth.permission
+  fields:
+    name: Can change token
+    content_type:
+      - authtoken
+      - tokenproxy
+    codename: change_tokenproxy
+- model: auth.permission
+  fields:
+    name: Can delete token
+    content_type:
+      - authtoken
+      - tokenproxy
+    codename: delete_tokenproxy
+- model: auth.permission
+  fields:
+    name: Can view token
+    content_type:
+      - authtoken
+      - tokenproxy
+    codename: view_tokenproxy
+- model: auth.permission
+  fields:
+    name: Can add address
+    content_type:
+      - market
+      - address
+    codename: add_address
+- model: auth.permission
+  fields:
+    name: Can change address
+    content_type:
+      - market
+      - address
+    codename: change_address
+- model: auth.permission
+  fields:
+    name: Can delete address
+    content_type:
+      - market
+      - address
+    codename: delete_address
+- model: auth.permission
+  fields:
+    name: Can view address
+    content_type:
+      - market
+      - address
+    codename: view_address
+- model: auth.permission
+  fields:
+    name: Can add category
+    content_type:
+      - market
+      - category
+    codename: add_category
+- model: auth.permission
+  fields:
+    name: Can change category
+    content_type:
+      - market
+      - category
+    codename: change_category
+- model: auth.permission
+  fields:
+    name: Can delete category
+    content_type:
+      - market
+      - category
+    codename: delete_category
+- model: auth.permission
+  fields:
+    name: Can view category
+    content_type:
+      - market
+      - category
+    codename: view_category
+- model: auth.permission
+  fields:
+    name: Can add coupon
+    content_type:
+      - market
+      - coupon
+    codename: add_coupon
+- model: auth.permission
+  fields:
+    name: Can change coupon
+    content_type:
+      - market
+      - coupon
+    codename: change_coupon
+- model: auth.permission
+  fields:
+    name: Can delete coupon
+    content_type:
+      - market
+      - coupon
+    codename: delete_coupon
+- model: auth.permission
+  fields:
+    name: Can view coupon
+    content_type:
+      - market
+      - coupon
+    codename: view_coupon
+- model: auth.permission
+  fields:
+    name: Can add item
+    content_type:
+      - market
+      - item
+    codename: add_item
+- model: auth.permission
+  fields:
+    name: Can change item
+    content_type:
+      - market
+      - item
+    codename: change_item
+- model: auth.permission
+  fields:
+    name: Can delete item
+    content_type:
+      - market
+      - item
+    codename: delete_item
+- model: auth.permission
+  fields:
+    name: Can view item
+    content_type:
+      - market
+      - item
+    codename: view_item
+- model: auth.permission
+  fields:
+    name: Can add order
+    content_type:
+      - market
+      - order
+    codename: add_order
+- model: auth.permission
+  fields:
+    name: Can change order
+    content_type:
+      - market
+      - order
+    codename: change_order
+- model: auth.permission
+  fields:
+    name: Can delete order
+    content_type:
+      - market
+      - order
+    codename: delete_order
+- model: auth.permission
+  fields:
+    name: Can view order
+    content_type:
+      - market
+      - order
+    codename: view_order
+- model: auth.permission
+  fields:
+    name: Can add user profile
+    content_type:
+      - market
+      - userprofile
+    codename: add_userprofile
+- model: auth.permission
+  fields:
+    name: Can change user profile
+    content_type:
+      - market
+      - userprofile
+    codename: change_userprofile
+- model: auth.permission
+  fields:
+    name: Can delete user profile
+    content_type:
+      - market
+      - userprofile
+    codename: delete_userprofile
+- model: auth.permission
+  fields:
+    name: Can view user profile
+    content_type:
+      - market
+      - userprofile
+    codename: view_userprofile
+- model: auth.permission
+  fields:
+    name: Can add refund
+    content_type:
+      - market
+      - refund
+    codename: add_refund
+- model: auth.permission
+  fields:
+    name: Can change refund
+    content_type:
+      - market
+      - refund
+    codename: change_refund
+- model: auth.permission
+  fields:
+    name: Can delete refund
+    content_type:
+      - market
+      - refund
+    codename: delete_refund
+- model: auth.permission
+  fields:
+    name: Can view refund
+    content_type:
+      - market
+      - refund
+    codename: view_refund
+- model: auth.permission
+  fields:
+    name: Can add payment
+    content_type:
+      - market
+      - payment
+    codename: add_payment
+- model: auth.permission
+  fields:
+    name: Can change payment
+    content_type:
+      - market
+      - payment
+    codename: change_payment
+- model: auth.permission
+  fields:
+    name: Can delete payment
+    content_type:
+      - market
+      - payment
+    codename: delete_payment
+- model: auth.permission
+  fields:
+    name: Can view payment
+    content_type:
+      - market
+      - payment
+    codename: view_payment
+- model: auth.permission
+  fields:
+    name: Can add order item
+    content_type:
+      - market
+      - orderitem
+    codename: add_orderitem
+- model: auth.permission
+  fields:
+    name: Can change order item
+    content_type:
+      - market
+      - orderitem
+    codename: change_orderitem
+- model: auth.permission
+  fields:
+    name: Can delete order item
+    content_type:
+      - market
+      - orderitem
+    codename: delete_orderitem
+- model: auth.permission
+  fields:
+    name: Can view order item
+    content_type:
+      - market
+      - orderitem
+    codename: view_orderitem
+- model: auth.user
+  fields:
+    password: pbkdf2_sha256$260000$NjPy2dLIkn071roqOKl2m3$SuQKkW1mMq+ti2YDalTWHIo5I57vUcfeRHiVMuiLtsk=
+    last_login: 2021-07-25 07:51:16.480510+00:00
+    is_superuser: true
+    username: admin
+    first_name: ""
+    last_name: ""
+    email: admin@example.com
+    is_staff: true
+    is_active: true
+    date_joined: 2021-07-25 07:51:07.765349+00:00
+    groups: []
+    user_permissions: []
+- model: market.userprofile
+  pk: 1
+  fields:
+    user:
+      - admin
+    stripe_customer_id: null
+    one_click_purchasing: false
+- model: admin.logentry
+  pk: 1
+  fields:
+    action_time: 2021-07-25 07:51:46.326325+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - category
+    object_id: "1"
+    object_repr: clothes
+    action_flag: 1
+    change_message: '[{"added": {}}]'
+- model: admin.logentry
+  pk: 2
+  fields:
+    action_time: 2021-07-25 07:51:56.955243+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - category
+    object_id: "2"
+    object_repr: cosmetics
+    action_flag: 1
+    change_message: '[{"added": {}}]'
+- model: admin.logentry
+  pk: 3
+  fields:
+    action_time: 2021-07-25 07:52:01.820309+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - category
+    object_id: "3"
+    object_repr: shoes
+    action_flag: 1
+    change_message: '[{"added": {}}]'
+- model: admin.logentry
+  pk: 4
+  fields:
+    action_time: 2021-07-25 07:52:06.286118+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - category
+    object_id: "4"
+    object_repr: men
+    action_flag: 1
+    change_message: '[{"added": {}}]'
+- model: admin.logentry
+  pk: 5
+  fields:
+    action_time: 2021-07-25 07:52:10.474548+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - category
+    object_id: "5"
+    object_repr: women
+    action_flag: 1
+    change_message: '[{"added": {}}]'
+- model: admin.logentry
+  pk: 6
+  fields:
+    action_time: 2021-07-25 07:52:14.426235+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - category
+    object_id: "6"
+    object_repr: kids
+    action_flag: 1
+    change_message: '[{"added": {}}]'
+- model: admin.logentry
+  pk: 7
+  fields:
+    action_time: 2021-07-25 08:19:07.187186+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - item
+    object_id: "1"
+    object_repr: T-shirt
+    action_flag: 1
+    change_message: '[{"added": {}}]'
+- model: admin.logentry
+  pk: 8
+  fields:
+    action_time: 2021-07-25 08:19:50.536817+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - item
+    object_id: "2"
+    object_repr: T-shirt black
+    action_flag: 1
+    change_message: '[{"added": {}}]'
+- model: admin.logentry
+  pk: 9
+  fields:
+    action_time: 2021-07-25 08:21:05.300551+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - item
+    object_id: "1"
+    object_repr: T-shirt white
+    action_flag: 2
+    change_message: '[{"changed": {"fields": ["Title", "Slug"]}}]'
+- model: admin.logentry
+  pk: 10
+  fields:
+    action_time: 2021-07-25 08:21:27.103950+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - item
+    object_id: "1"
+    object_repr: T-shirt white
+    action_flag: 2
+    change_message: '[{"changed": {"fields": ["Title", "Slug"]}}]'
+- model: admin.logentry
+  pk: 11
+  fields:
+    action_time: 2021-07-25 08:21:47.604934+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - item
+    object_id: "1"
+    object_repr: T-shirt white
+    action_flag: 2
+    change_message: '[{"changed": {"fields": ["Title"]}}]'
+- model: admin.logentry
+  pk: 12
+  fields:
+    action_time: 2021-07-25 08:22:20.299110+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - item
+    object_id: "1"
+    object_repr: T-shirt white
+    action_flag: 2
+    change_message: '[{"changed": {"fields": ["Title", "Slug"]}}]'
+- model: admin.logentry
+  pk: 13
+  fields:
+    action_time: 2021-07-25 08:26:42.976672+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - item
+    object_id: "3"
+    object_repr: Blue /white Roses Dress
+    action_flag: 1
+    change_message: '[{"added": {}}]'
+- model: admin.logentry
+  pk: 14
+  fields:
+    action_time: 2021-07-25 08:28:32.414327+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - item
+    object_id: "4"
+    object_repr: white sneaker
+    action_flag: 1
+    change_message: '[{"added": {}}]'
+- model: admin.logentry
+  pk: 15
+  fields:
+    action_time: 2021-07-25 08:30:45.860889+00:00
+    user:
+      - admin
+    content_type:
+      - market
+      - item
+    object_id: "5"
+    object_repr: Ahlam perfume
+    action_flag: 1
+    change_message: '[{"added": {}}]'
