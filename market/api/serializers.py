@@ -83,7 +83,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
 
 class ItemDetailSerializer(serializers.ModelSerializer):
-    category = serializers.SerializerMethodField()
+    categories = CategorySerializer(many=True, read_only=True)
 
     class Meta:
         model = Item
@@ -95,12 +95,9 @@ class ItemDetailSerializer(serializers.ModelSerializer):
             "slug",
             "description",
             "image",
+            "categories",
         )
-
-    def get_category(self, obj):
-        if obj.category is not None:
-            return CategorySerializer(obj.category).data
-        return None
+        extra_kwargs = {"categories": {"required": False}}
 
 
 class CategoryDetailSerializer(serializers.ModelSerializer):
