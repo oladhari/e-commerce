@@ -13,10 +13,10 @@ import {
   Responsive,
   Segment,
   Sidebar,
-  Visibility
+  Visibility,
 } from "semantic-ui-react";
 
-import Banner from "../components/Banner"
+import Banner from "../components/Banner";
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined";
@@ -47,7 +47,7 @@ class DesktopContainer extends Component {
 }
 
 DesktopContainer.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 class MobileContainer extends Component {
@@ -74,7 +74,7 @@ class MobileContainer extends Component {
 }
 
 MobileContainer.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 const ResponsiveContainer = ({ children }) => (
@@ -85,7 +85,7 @@ const ResponsiveContainer = ({ children }) => (
 );
 
 ResponsiveContainer.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 const HomepageLayout = () => (

@@ -19,20 +19,20 @@ import React, { useEffect, useState } from "react";
 const paragraph = <Image src="/images/wireframe/short-paragraph.png" />;
 
 const CategoriesList = () => {
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     setLoading(true);
     Axios.get("http://127.0.0.1:8000/api/categories/")
       .then((res) => {
         setData(res.data);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((err) => {
         setError(err);
-        setLoading(false)
+        setLoading(false);
       });
   }, []);
 
@@ -61,7 +61,6 @@ const CategoriesList = () => {
       </Grid>
     </Container>
   );
-}
-
+};
 
 export default CategoriesList;

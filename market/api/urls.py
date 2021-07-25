@@ -1,23 +1,22 @@
 from django.urls import path
-from market.api.views import (
-    UserIDView,
-    ItemListView,
-    ItemDetailView,
-    CategoryListView,
-    CategoryDetailView,
-    AddToCartView,
-    OrderDetailView,
-    OrderQuantityUpdateView,
-    PaymentView,
-    AddCouponView,
-    CountryListView,
-    AddressListView,
-    AddressCreateView,
-    AddressUpdateView,
-    AddressDeleteView,
-    OrderItemDeleteView,
-    PaymentListView,
-)
+
+from market.api.views import AddCouponView
+from market.api.views import AddressCreateView
+from market.api.views import AddressDeleteView
+from market.api.views import AddressListView
+from market.api.views import AddressUpdateView
+from market.api.views import AddToCartView
+from market.api.views import CategoryDetailView
+from market.api.views import CategoryListView
+from market.api.views import CountryListView
+from market.api.views import ItemDetailView
+from market.api.views import ItemListView
+from market.api.views import OrderDetailView
+from market.api.views import OrderItemDeleteView
+from market.api.views import OrderQuantityUpdateView
+from market.api.views import PaymentListView
+from market.api.views import PaymentView
+from market.api.views import UserIDView
 
 urlpatterns = [
     path("user-id/", UserIDView.as_view(), name="user-id"),

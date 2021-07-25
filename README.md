@@ -36,11 +36,13 @@ npm start
 **with yarn:**
 
 **installation**
+
 ```shell
 yarn
 ```
 
 **start development environment**
+
 ```shell
 yarn start
 ```

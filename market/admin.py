@@ -1,16 +1,14 @@
 from django.contrib import admin
 
-from market.models import (
-    Item,
-    OrderItem,
-    Order,
-    Payment,
-    Coupon,
-    Refund,
-    Address,
-    Category,
-    UserProfile,
-)
+from market.models import Address
+from market.models import Category
+from market.models import Coupon
+from market.models import Item
+from market.models import Order
+from market.models import OrderItem
+from market.models import Payment
+from market.models import Refund
+from market.models import UserProfile
 
 
 def make_refund_accepted(modeladmin, request, queryset):
