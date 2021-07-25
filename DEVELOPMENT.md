@@ -65,3 +65,17 @@ make sure you have `ipdb` installed in your local virtualenv
 ```python
 import ipdb; ipdb.set_trace()
 ```
+
+## To load Data in fixtures:
+
+to use the initial fixtures for development purpose:
+
+```shell
+./manage.py loaddata fixtures
+```
+
+to update the fixtures or reate new one:
+
+```shell
+./manage.py dumpdata --format yaml --natural-foreign --natural-primary  > home/fixtures/fixtures.yaml
+```
