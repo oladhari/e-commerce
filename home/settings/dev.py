@@ -1,19 +1,23 @@
 """Use this for development"""
-
 from .base import *
+from .base import ALLOWED_HOSTS
+from .base import BASE_DIR
+from .base import INSTALLED_APPS
+from .base import MIDDLEWARE
 
-ALLOWED_HOSTS += ["127.0.0.1"]
+
+BASE_URL = "http://ecom.local:8000"
+ALLOWED_HOSTS += ["127.0.0.1", "ecom.local"]
 DEBUG = True
 
 WSGI_APPLICATION = "home.wsgi.dev.application"
+INSTALLED_APPS += ["django_extensions", "debug_toolbar"]
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    }
+    "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}
 }
-
+MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
+INTERNAL_IPS = ["127.0.0.1"]
 CORS_ORIGIN_WHITELIST = ("http://localhost:3000",)
 
 
