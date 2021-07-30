@@ -1,26 +1,24 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
 import BaseRouter from "./routes";
 import * as actions from "./store/actions/auth";
 import "semantic-ui-css/semantic.min.css";
-import CustomLayout from "./components/Layout";
+import Layout from "./components/Layout";
 
-class App extends Component {
-  componentDidMount() {
-    this.props.onTryAutoSignup();
-  }
+const App = ({ onTryAutoSignup, ...props }) => {
+  useEffect(() => {
+    onTryAutoSignup();
+  }, []);
 
-  render() {
-    return (
-      <Router>
-        <CustomLayout {...this.props}>
-          <BaseRouter />
-        </CustomLayout>
-      </Router>
-    );
-  }
-}
+  return (
+    <Router>
+      <Layout {...props}>
+        <BaseRouter />
+      </Layout>
+    </Router>
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
