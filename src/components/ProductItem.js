@@ -1,48 +1,45 @@
-import { Item, Button, Label, Icon } from "semantic-ui-react";
-// import { Card, Icon, Image } from 'semantic-ui-react'
+import React from "react";
 
-const Product = ({ data }) => (
-  <Item.Group divided key={data.slug}>
-    <Item>
-      <Item.Image src={data.image} />
+import { Icon, Card, Button } from "semantic-ui-react";
 
-      <Item.Content>
-        <Item.Header as="a">{data.title}</Item.Header>
-        <Item.Meta>
-          <span className="cinema">IFC Cinema</span>
-        </Item.Meta>
-        <Item.Description>{data.description}</Item.Description>
-        <Item.Extra>
-          <Button primary floated="right" icon labelPosition="right">
-            Add to cart
-            <Icon name="cart plus" />
-          </Button>
-          <Label>Limited</Label>
-        </Item.Extra>
-      </Item.Content>
-    </Item>
-  </Item.Group>
-);
-
-// const CardExampleImageCard = ({ data }) => (
-//   <Card>
-//     <Image src='/images/avatar/large/daniel.jpg' wrapped ui={false} />
-//     <Card.Content>
-//       <Card.Header>{data.title}</Card.Header>
-//       <Card.Meta>{data.price}</Card.Meta>
-//       <Card.Description>
-//         {data.description}
-//       </Card.Description>
-//     </Card.Content>
-//     <Card.Content extra>
-//       <a>
-//         <Icon name='user' />
-//         10 Friends
-//       </a>
-//     </Card.Content>
-//   </Card>
-// )
-
-// export default CardExampleImageCard
+const Product = ({ data, key }) => {
+  return (
+    <Card key={key} style={{ padding: "1rem" }}>
+      <div
+        style={{
+          height: "200px",
+          backgroundImage: `url(${data.image})`,
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
+      <Card.Content>
+        <Card.Meta>{data.title}</Card.Meta>
+        <Card.Header style={{ padding: "10px 0", fontSize: "200%" }}>
+          {data.price} ${" "}
+        </Card.Header>
+        <Card.Description>{data.description}</Card.Description>
+      </Card.Content>
+      <Card.Content
+        extra
+        style={{ display: "flex", justifyContent: "space-evenly" }}
+      >
+        <Button animated style={{ width: "100px" }}>
+          <Button.Content visible>Details</Button.Content>
+          <Button.Content hidden>
+            <Icon name="arrow right" />
+          </Button.Content>
+        </Button>
+        <Button animated="vertical" style={{ width: "100px" }}>
+          <Button.Content hidden>Add to cart</Button.Content>
+          <Button.Content visible>
+            <Icon name="shop" />
+          </Button.Content>
+        </Button>
+      </Card.Content>
+    </Card>
+  );
+};
 
 export default Product;

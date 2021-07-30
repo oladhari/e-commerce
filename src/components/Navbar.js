@@ -1,15 +1,22 @@
 import React from "react";
-import { Container, Menu } from "semantic-ui-react";
+import { Container, Menu, Icon, Dropdown } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import { logout } from "../store/actions/auth";
 
 const Navbar = ({ authenticated }) => (
   <Menu inverted>
     <Container>
       {authenticated ? (
         <>
-          <Menu.Item header onClick={() => this.props.logout()}>
+          <Menu.Item header onClick={() => logout()}>
             Logout
           </Menu.Item>
+          <Link to="/cart">
+            <Menu.Item header>
+              <Icon name="shop" />
+              Cart
+            </Menu.Item>
+          </Link>
           <Link to="/">
             <Menu.Item header>Home</Menu.Item>
           </Link>
@@ -30,9 +37,21 @@ const Navbar = ({ authenticated }) => (
       <Link to="/products">
         <Menu.Item header>Products</Menu.Item>
       </Link>
-      <Link to="/categories">
-        <Menu.Item header>Categories</Menu.Item>
-      </Link>
+      <Dropdown text="Categories" pointing className="link item">
+        <Dropdown.Menu>
+          <Link to="/clothes">
+            <Dropdown.Item style={{ color: "rgba(0,0,0,.87)" }}>
+              Clothes
+            </Dropdown.Item>
+          </Link>
+          <Dropdown.Item>Cosmetics</Dropdown.Item>
+          <Dropdown.Item>Shoes</Dropdown.Item>
+          <Dropdown.Item>Men</Dropdown.Item>
+          <Dropdown.Item>Women</Dropdown.Item>
+          <Dropdown.Item>Kids</Dropdown.Item>
+          <Dropdown.Item>Food</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
     </Container>
   </Menu>
 );
