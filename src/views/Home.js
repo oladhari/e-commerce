@@ -90,15 +90,11 @@ ResponsiveContainer.propTypes = {
 
 const HomepageLayout = () => (
   <ResponsiveContainer>
-    <Segment style={{ padding: "8em 0em" }} vertical>
-      <Grid container verticalAlign="middle" centered>
-        <Grid.Row>
-          <Grid.Column textAlign="center">
-            <Banner data="Svaria Market" />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
+    <Banner
+      title="Svaria Market"
+      bgImageLink="https://i.pinimg.com/originals/0b/a3/d6/0ba3d60362c7e6d256cfc1f37156bad9.jpg"
+      txtColor="white"
+    />
     <Segment style={{ padding: "0em" }} vertical>
       <Grid celled="internally" columns="equal" stackable>
         <Grid.Row textAlign="center">
