@@ -40,9 +40,9 @@ const ProductsContextProvider = ({ children }) => {
           <Image src="/images/wireframe/short-paragraph.png" />
         </Segment>
       )}
-      {products.map((el) => (
-        <ProductsContext.Provider value={{ el }}>
-          {children}
+      {products.map((el, key) => (
+        <ProductsContext.Provider>
+          <Product data={el} key={key} />
         </ProductsContext.Provider>
       ))}
     </Container>

@@ -54,11 +54,11 @@ const ProductsGrid = () => {
         style={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-around",
+          justifyContent: "space-evenly",
         }}
       >
-        {data.map((el, key) => (
-          <Product data={el} key={key} />
+        {data.map((el, idx) => (
+          <Product product={el} key={idx} />
         ))}
       </div>
     </Container>
