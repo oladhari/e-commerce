@@ -50,7 +50,7 @@ const ProductList = () => {
         </Segment>
       )}
       {data.map((product) => (
-        <Product product={product} />
+        <Product product={product} key={product.slug} />
       ))}
     </Container>
   );
