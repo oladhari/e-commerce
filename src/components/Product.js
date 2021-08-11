@@ -1,22 +1,21 @@
-import { Item, Button, Label, Icon } from "semantic-ui-react";
+import { Button, Icon, Item, Label } from "semantic-ui-react";
 
-const Product = ({ data }) => (
-  <Item.Group divided key={data.slug}>
+const Product = ({ product }) => (
+  <Item.Group divided key={product.slug}>
     <Item>
-      <Item.Image src={data.image} />
+      <Item.Image src={product.image} />
 
       <Item.Content>
-        <Item.Header as="a">{data.title}</Item.Header>
+        <Item.Header as="a">{product.title}</Item.Header>
         <Item.Meta>
-          <span className="cinema">IFC Cinema</span>
+          <span className="cinema">{product.price}</span>
         </Item.Meta>
-        <Item.Description>{data.description}</Item.Description>
+        <Item.Description>{product.description}</Item.Description>
         <Item.Extra>
           <Button primary floated="right" icon labelPosition="right">
             Add to cart
             <Icon name="cart plus" />
           </Button>
-          <Label>Limited</Label>
         </Item.Extra>
       </Item.Content>
     </Item>

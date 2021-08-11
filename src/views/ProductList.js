@@ -49,8 +49,8 @@ const ProductList = () => {
           <Image src="/images/wireframe/short-paragraph.png" />
         </Segment>
       )}
-      {data.map((el) => (
-        <Product data={el} />
+      {data.map((product) => (
+        <Product product={product} />
       ))}
     </Container>
   );
