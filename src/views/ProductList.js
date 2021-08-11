@@ -10,6 +10,7 @@ import React, { useEffect, useState } from "react";
 
 import Axios from "axios";
 import Product from "../components/Product";
+import { productListURL } from "../constants";
 
 const paragraph = <Image src="/images/wireframe/short-paragraph.png" />;
 
@@ -20,7 +21,7 @@ const ProductList = () => {
 
   useEffect(() => {
     setLoading(true);
-    Axios.get("http://127.0.0.1:8000/api/products/")
+    Axios.get(productListURL)
       .then((res) => {
         setData(res.data);
         setLoading(false);
@@ -46,7 +47,7 @@ const ProductList = () => {
             <Loader>Loading</Loader>
           </Dimmer>
 
-          <Image src="/images/wireframe/short-paragraph.png" />
+          {paragraph}
         </Segment>
       )}
       {data.map((product) => (
