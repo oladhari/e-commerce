@@ -11,7 +11,7 @@ const Product = ({ product }) => {
       .post(addToCartURL, { slug: slug })
       .then((res) => {
         // add the card count
-        console.log(res);
+        console.log(res.data);
       })
       .catch((err) => {
         setError(err.message);
