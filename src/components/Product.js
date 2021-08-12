@@ -3,15 +3,17 @@ import React, { useState } from "react";
 
 import { addToCartURL } from "../constants";
 import { authAxios } from "../utils";
+import { fetchCart } from "../store/actions/cart";
+import { useDispatch } from "react-redux";
 
 const Product = ({ product }) => {
   const [error, setError] = useState(null);
+  const dispatch = useDispatch();
   const handleAddToCart = (slug) => {
     authAxios
       .post(addToCartURL, { slug: slug })
       .then((res) => {
-        // add the card count
-        console.log(res.data);
+        dispatch(fetchCart());
       })
       .catch((err) => {
         setError(err.message);
