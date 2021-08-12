@@ -42,7 +42,7 @@ const Product = ({ product }) => {
               floated="right"
               icon
               labelPosition="right"
-              onClick={handleAddToCart(product.slug)}
+              onClick={() => handleAddToCart(product.slug)}
             >
               Add to cart
               <Icon name="cart plus" />
