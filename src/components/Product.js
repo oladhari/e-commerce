@@ -1,15 +1,17 @@
 import { Button, Icon, Item, Message } from "semantic-ui-react";
 import React, { useState } from "react";
 
-import Axios from "axios";
 import { addToCartURL } from "../constants";
+import { authAxios } from "../utils";
 
 const Product = ({ product }) => {
   const [error, setError] = useState(null);
   const handleAddToCart = (slug) => {
-    Axios.post(addToCartURL, { slug })
+    authAxios
+      .post(addToCartURL, { slug: slug })
       .then((res) => {
-        setData(res.data);
+        // add the card count
+        console.log(res);
       })
       .catch((err) => {
         setError(err.message);
