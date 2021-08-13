@@ -71,7 +71,7 @@ class OrderSerializer(serializers.ModelSerializer):
         fields = ("id", "order_items", "total", "coupon")
 
     def get_order_items(self, obj):
-        return OrderItemSerializer(obj.items(), many=True).data
+        return OrderItemSerializer(obj.items.all(), many=True).data
 
     def get_total(self, obj):
         return obj.get_total()
