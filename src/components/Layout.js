@@ -13,11 +13,16 @@ import { Link, withRouter } from "react-router-dom";
 
 import React from "react";
 import { connect } from "react-redux";
+import { fetchCart } from "../store/actions/cart";
 import { logout } from "../store/actions/auth";
 
 class CustomLayout extends React.Component {
+  componentDidMount() {
+    this.props.fetchCart();
+  }
   render() {
-    const { authenticated } = this.props;
+    const { authenticated, cart } = this.props;
+    console.log(cart);
     return (
       <div>
         <Menu inverted>
@@ -124,12 +129,15 @@ class CustomLayout extends React.Component {
 const mapStateToProps = (state) => {
   return {
     authenticated: state.auth.token !== null,
+    cart: state.cart.shoppingCart,
+    loading: state.cart.loading,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
+    fetchCart: () => dispatch(fetchCart()),
   };
 };
 
