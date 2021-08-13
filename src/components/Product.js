@@ -13,7 +13,7 @@ const Product = ({ product }) => {
     authAxios
       .post(addToCartURL, { slug: slug })
       .then((res) => {
-        dispatch(fetchCart());
+        dispatch(fetchCart(res.data));
       })
       .catch((err) => {
         setError(err.message);
