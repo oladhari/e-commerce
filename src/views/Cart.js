@@ -1,12 +1,17 @@
-import React from "react";
-import Layout from "../components/Layout";
-import CardItem from "../components/CartItem";
+import React, { useContext } from "react";
+import CardItem from "../components/Cart/CartItem";
+import { CartContext } from "../contexts/CartContext";
 
-const Cart = () => (
-  <>
-    <div>this is the cart page</div>
-    <CardItem />
-  </>
-);
+const Cart = () => {
+  const cartItems = useContext(CartContext);
+  return (
+    <>
+      <div>{console.log(cartItems)}</div>
+      {cartItems.map((item, idx) => (
+        <CardItem product={item} key={idx} />
+      ))}
+    </>
+  );
+};
 
 export default Cart;
