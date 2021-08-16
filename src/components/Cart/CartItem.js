@@ -4,18 +4,7 @@ import { CartContext } from "../../contexts/CartContext";
 
 import { formatNumber } from "../../helpers/utils";
 
-const product = {
-  description: "White T-shirt",
-  discount_price: null,
-  id: 1,
-  image: "http://127.0.0.1:8000/media/t-shirt-white.jpg",
-  price: 25,
-  slug: "t-shirt-white",
-  title: "T-shirt white",
-  quantity: 10,
-};
-
-const CartItem = () => {
+const CartItem = ({ product }) => {
   const { increase, decrease, removeProduct } = useContext(CartContext);
 
   return (
